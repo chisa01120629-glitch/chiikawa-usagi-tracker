@@ -1,0 +1,8 @@
+name = "chiikawa-usagi-worker"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "chiikawa-usagi-db"
+database_id = "2974f079-bcea-4d67-8dea-88aaa779268b"

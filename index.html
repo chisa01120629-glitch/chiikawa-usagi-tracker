@@ -242,7 +242,8 @@
 <input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none">
 
 <script>
-const STORAGE_KEY = 'chiikawa-usagi-state-v1';
+const API_BASE = 'https://chiikawa-usagi-worker.hana-app.workers.dev';
+const PASS_KEY = 'chiikawa-usagi-passphrase';
 const THEME_KEY = 'chiikawa-usagi-theme';
 let DATA = null;
 let currentPrefCode = null;
@@ -250,35 +251,66 @@ let currentPhotoTargetId = null;
 let filterMode = 'all';
 let searchTerm = '';
 
-function loadState(){
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e){ return {}; }
+function getPassphrase(){ return localStorage.getItem(PASS_KEY) || ''; }
+function setPassphrase(v){ localStorage.setItem(PASS_KEY, v); }
+
+// Calls a write endpoint on the Worker API. Prompts for the passphrase the
+// first time, or again if the server rejects it, then retries once.
+async function apiWrite(path, options){
+  const doFetch = (pass) => fetch(API_BASE + path, {
+    ...options,
+    headers: { 'Content-Type': 'application/json', 'X-Passphrase': pass, ...(options.headers||{}) },
+  });
+
+  let res = await doFetch(getPassphrase());
+  if (res.status === 401){
+    const pass = prompt('書き込みには合言葉が必要です。入力してください:');
+    if (pass === null) throw new Error('cancelled');
+    setPassphrase(pass);
+    res = await doFetch(pass);
+  }
+  if (!res.ok){
+    const e = await res.json().catch(()=>({}));
+    alert('エラーが発生しました: ' + (e.error || res.status));
+    throw new Error('api error');
+  }
+  return res.json();
 }
-function saveState(state){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+
+async function fetchState(){
+  const res = await fetch(API_BASE + '/api/state');
+  if (!res.ok) throw new Error('state fetch failed');
+  return res.json();
 }
 
 async function init(){
   const theme = localStorage.getItem(THEME_KEY);
   if (theme) document.documentElement.setAttribute('data-theme', theme);
 
-  const res = await fetch('data/usagi-items.json');
-  const json = await res.json();
-  const state = loadState();
+  const [baseRes, state] = await Promise.all([
+    fetch('data/usagi-items.json').then(r => r.json()),
+    fetchState().catch(() => ({ itemStates: {}, customItems: [] })),
+  ]);
 
-  // merge saved owned/memo/photo + custom items into base data
-  json.regions.forEach(region => {
+  // merge saved owned/memo/photo into base data
+  baseRes.regions.forEach(region => {
     region.prefectures.forEach(pref => {
       pref.items.forEach(item => {
-        const saved = state[item.id];
+        const saved = state.itemStates[item.id];
         if (saved) Object.assign(item, saved);
       });
-      const customKey = 'custom:' + pref.code;
-      const customItems = state[customKey] || [];
-      customItems.forEach(ci => pref.items.push(ci));
     });
   });
 
-  DATA = json;
+  // place custom items into their prefecture
+  state.customItems.forEach(ci => {
+    for (const region of baseRes.regions){
+      const pref = region.prefectures.find(p => p.code === ci.prefCode);
+      if (pref){ pref.items.push(ci); break; }
+    }
+  });
+
+  DATA = baseRes;
   renderRegions();
   updateProgress();
 
@@ -451,20 +483,23 @@ function escapeHtml(s){
   return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-function persistItem(item){
-  const state = loadState();
-  state[item.id] = { owned: item.owned, memo: item.memo, photo: item.photo };
-  if (item.custom) state[item.id].custom = true;
-  saveState(state);
-}
-
-function toggleOwned(id){
+async function toggleOwned(id){
   const pref = findPref(currentPrefCode);
   const item = pref.items.find(i => i.id === id);
-  item.owned = !item.owned;
-  persistItem(item);
+  const previous = item.owned;
+  item.owned = !item.owned; // optimistic update
   renderModal();
   updateProgress();
+  try {
+    await apiWrite('/api/items/' + encodeURIComponent(id), {
+      method: 'PUT',
+      body: JSON.stringify({ owned: item.owned, memo: item.memo }),
+    });
+  } catch (e) {
+    item.owned = previous; // revert on failure
+    renderModal();
+    updateProgress();
+  }
 }
 
 function toggleDetail(id){
@@ -472,11 +507,20 @@ function toggleDetail(id){
   row.classList.toggle('open');
 }
 
-function updateMemo(id, value){
+async function updateMemo(id, value){
   const pref = findPref(currentPrefCode);
   const item = pref.items.find(i => i.id === id);
+  const previous = item.memo;
   item.memo = value;
-  persistItem(item);
+  try {
+    await apiWrite('/api/items/' + encodeURIComponent(id), {
+      method: 'PUT',
+      body: JSON.stringify({ owned: item.owned, memo: item.memo }),
+    });
+  } catch (e) {
+    item.memo = previous;
+    renderModal();
+  }
 }
 
 function pickPhoto(id){
@@ -490,7 +534,7 @@ function handlePhotoSelected(e){
   const img = new Image();
   const reader = new FileReader();
   reader.onload = function(ev){
-    img.onload = function(){
+    img.onload = async function(){
       const canvas = document.createElement('canvas');
       const maxSize = 800;
       let w = img.width, h = img.height;
@@ -499,10 +543,18 @@ function handlePhotoSelected(e){
       canvas.width = w; canvas.height = h;
       canvas.getContext('2d').drawImage(img, 0, 0, w, h);
       const dataUrl = canvas.toDataURL('image/jpeg', 0.75);
+      const id = currentPhotoTargetId;
       const pref = findPref(currentPrefCode);
-      const item = pref.items.find(i => i.id === currentPhotoTargetId);
-      item.photo = dataUrl;
-      persistItem(item);
+      const item = pref.items.find(i => i.id === id);
+      try {
+        await apiWrite('/api/photo/' + encodeURIComponent(id), {
+          method: 'POST',
+          body: JSON.stringify({ dataUrl }),
+        });
+        item.photo = dataUrl;
+      } catch (err) {
+        // apiWrite already showed an error; keep previous photo
+      }
       renderModal();
     };
     img.src = ev.target.result;
@@ -511,11 +563,15 @@ function handlePhotoSelected(e){
   e.target.value = '';
 }
 
-function removePhoto(id){
+async function removePhoto(id){
   const pref = findPref(currentPrefCode);
   const item = pref.items.find(i => i.id === id);
-  item.photo = null;
-  persistItem(item);
+  try {
+    await apiWrite('/api/photo/' + encodeURIComponent(id), { method: 'DELETE' });
+    item.photo = null;
+  } catch (e) {
+    // apiWrite already showed an error
+  }
   renderModal();
 }
 
@@ -529,38 +585,37 @@ function closeLightbox(){
   document.getElementById('lightbox').hidden = true;
 }
 
-function addCustomItem(){
+async function addCustomItem(){
   const input = document.getElementById('newItemInput');
   const name = input.value.trim();
   if (!name) return;
   const pref = findPref(currentPrefCode);
-  const id = 'custom-' + pref.code + '-' + Date.now();
-  const newItem = { id, motif: name, owned: false, memo: '', photo: null, refLink: pref.items[0]?pref.items[0].refLink:'#', custom: true };
-  pref.items.push(newItem);
+  const refLink = pref.items[0] ? pref.items[0].refLink : '#';
 
-  const state = loadState();
-  const key = 'custom:' + pref.code;
-  state[key] = state[key] || [];
-  state[key].push(newItem);
-  saveState(state);
-
-  input.value = '';
-  renderModal();
-  updateProgress();
+  try {
+    const newItem = await apiWrite('/api/custom', {
+      method: 'POST',
+      body: JSON.stringify({ prefCode: pref.code, motif: name, refLink }),
+    });
+    pref.items.push(newItem);
+    input.value = '';
+    renderModal();
+    updateProgress();
+  } catch (e) {
+    // apiWrite already showed an error
+  }
 }
 
-function removeCustomItem(id){
+async function removeCustomItem(id){
   const pref = findPref(currentPrefCode);
-  pref.items = pref.items.filter(i => i.id !== id);
-
-  const state = loadState();
-  delete state[id];
-  const key = 'custom:' + pref.code;
-  if (state[key]) state[key] = state[key].filter(i => i.id !== id);
-  saveState(state);
-
-  renderModal();
-  updateProgress();
+  try {
+    await apiWrite('/api/custom/' + encodeURIComponent(id), { method: 'DELETE' });
+    pref.items = pref.items.filter(i => i.id !== id);
+    renderModal();
+    updateProgress();
+  } catch (e) {
+    // apiWrite already showed an error
+  }
 }
 
 init();
