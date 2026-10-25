@@ -1,0 +1,1656 @@
+{
+  "source": "https://kusamushirikenntei.com/checklist-keyholder/",
+  "character": "usagi",
+  "regions": [
+    {
+      "code": "hokkaido-tohoku",
+      "name": "北海道・東北",
+      "prefectures": [
+        {
+          "code": "hokkaido",
+          "name": "北海道",
+          "items": [
+            {
+              "id": "hokkaido-1",
+              "motif": "北海道",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hokkaido/"
+            },
+            {
+              "id": "hokkaido-2",
+              "motif": "ラベンダー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hokkaido/"
+            },
+            {
+              "id": "hokkaido-3",
+              "motif": "メロン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hokkaido/"
+            },
+            {
+              "id": "hokkaido-4",
+              "motif": "シマエナガ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hokkaido/"
+            },
+            {
+              "id": "hokkaido-5",
+              "motif": "くま",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hokkaido/"
+            },
+            {
+              "id": "hokkaido-6",
+              "motif": "さっぽろテレビ塔",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hokkaido/"
+            },
+            {
+              "id": "hokkaido-7",
+              "motif": "函館の夜景",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hokkaido/"
+            },
+            {
+              "id": "hokkaido-8",
+              "motif": "小樽運河",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hokkaido/"
+            }
+          ]
+        },
+        {
+          "code": "aomori",
+          "name": "青森",
+          "items": [
+            {
+              "id": "aomori-9",
+              "motif": "青森りんご",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/aomori/"
+            },
+            {
+              "id": "aomori-10",
+              "motif": "ねぶた祭",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/aomori/"
+            }
+          ]
+        },
+        {
+          "code": "iwate",
+          "name": "岩手",
+          "items": [
+            {
+              "id": "iwate-11",
+              "motif": "わんこそば",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/iwate/"
+            },
+            {
+              "id": "iwate-12",
+              "motif": "銀河鉄道",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/iwate/"
+            }
+          ]
+        },
+        {
+          "code": "miyagi",
+          "name": "宮城",
+          "items": [
+            {
+              "id": "miyagi-13",
+              "motif": "伊達政宗",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/miyagi/"
+            },
+            {
+              "id": "miyagi-14",
+              "motif": "笹かま",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/miyagi/"
+            },
+            {
+              "id": "miyagi-15",
+              "motif": "こけし",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/miyagi/"
+            }
+          ]
+        },
+        {
+          "code": "akita",
+          "name": "秋田",
+          "items": [
+            {
+              "id": "akita-16",
+              "motif": "秋田犬",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/akita/"
+            },
+            {
+              "id": "akita-17",
+              "motif": "なまはげ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/akita/"
+            },
+            {
+              "id": "akita-18",
+              "motif": "竿燈まつり",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/akita/"
+            }
+          ]
+        },
+        {
+          "code": "yamagata",
+          "name": "山形",
+          "items": [
+            {
+              "id": "yamagata-19",
+              "motif": "さくらんぼ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/yamagata/"
+            },
+            {
+              "id": "yamagata-20",
+              "motif": "米沢牛",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/yamagata/"
+            },
+            {
+              "id": "yamagata-21",
+              "motif": "花笠まつり",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/yamagata/"
+            },
+            {
+              "id": "yamagata-22",
+              "motif": "だだちゃ豆",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/yamagata/"
+            }
+          ]
+        },
+        {
+          "code": "fukushima",
+          "name": "福島",
+          "items": [
+            {
+              "id": "fukushima-23",
+              "motif": "赤べこ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukushima/"
+            },
+            {
+              "id": "fukushima-24",
+              "motif": "ハワイアン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukushima/"
+            },
+            {
+              "id": "fukushima-25",
+              "motif": "白虎隊",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukushima/"
+            },
+            {
+              "id": "fukushima-26",
+              "motif": "桃",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukushima/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "kanto",
+      "name": "関東",
+      "prefectures": [
+        {
+          "code": "ibaraki",
+          "name": "茨城",
+          "items": [
+            {
+              "id": "ibaraki-27",
+              "motif": "黄門様",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/ibaraki/"
+            },
+            {
+              "id": "ibaraki-28",
+              "motif": "水戸納豆",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/ibaraki/"
+            }
+          ]
+        },
+        {
+          "code": "tochigi",
+          "name": "栃木",
+          "items": [
+            {
+              "id": "tochigi-29",
+              "motif": "スカイベリー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tochigi/"
+            },
+            {
+              "id": "tochigi-30",
+              "motif": "藤の花",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tochigi/"
+            },
+            {
+              "id": "tochigi-31",
+              "motif": "三猿",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tochigi/"
+            },
+            {
+              "id": "tochigi-32",
+              "motif": "栃木レモン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tochigi/"
+            }
+          ]
+        },
+        {
+          "code": "gunma",
+          "name": "群馬",
+          "items": [
+            {
+              "id": "gunma-33",
+              "motif": "草津温泉",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/gunma/"
+            },
+            {
+              "id": "gunma-34",
+              "motif": "だるま",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/gunma/"
+            },
+            {
+              "id": "gunma-35",
+              "motif": "焼きまんじゅう",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/gunma/"
+            }
+          ]
+        },
+        {
+          "code": "saitama",
+          "name": "埼玉",
+          "items": [
+            {
+              "id": "saitama-36",
+              "motif": "さつまいも",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/saitama/"
+            },
+            {
+              "id": "saitama-37",
+              "motif": "深谷ねぎ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/saitama/"
+            }
+          ]
+        },
+        {
+          "code": "chiba",
+          "name": "千葉",
+          "items": [
+            {
+              "id": "chiba-38",
+              "motif": "落花生",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/chiba/"
+            },
+            {
+              "id": "chiba-39",
+              "motif": "梨",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/chiba/"
+            },
+            {
+              "id": "chiba-40",
+              "motif": "行徳みこし",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/chiba/"
+            }
+          ]
+        },
+        {
+          "code": "tokyo",
+          "name": "東京",
+          "items": [
+            {
+              "id": "tokyo-41",
+              "motif": "雷門",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tokyo/"
+            },
+            {
+              "id": "tokyo-42",
+              "motif": "東京パンダ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tokyo/"
+            },
+            {
+              "id": "tokyo-43",
+              "motif": "スカイツリー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tokyo/"
+            },
+            {
+              "id": "tokyo-44",
+              "motif": "東京タワー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tokyo/"
+            },
+            {
+              "id": "tokyo-45",
+              "motif": "東京駅丸の内駅舎",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tokyo/"
+            }
+          ]
+        },
+        {
+          "code": "kanagawa",
+          "name": "神奈川",
+          "items": [
+            {
+              "id": "kanagawa-46",
+              "motif": "箱根温泉まんじゅう",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kanagawa/"
+            },
+            {
+              "id": "kanagawa-47",
+              "motif": "横浜金の豚",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kanagawa/"
+            },
+            {
+              "id": "kanagawa-48",
+              "motif": "鎌倉大仏さま",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kanagawa/"
+            },
+            {
+              "id": "kanagawa-49",
+              "motif": "寄木細工",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kanagawa/"
+            },
+            {
+              "id": "kanagawa-50",
+              "motif": "横浜カンフー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kanagawa/"
+            },
+            {
+              "id": "kanagawa-51",
+              "motif": "大涌谷黒たまご",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kanagawa/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "chubu",
+      "name": "中部",
+      "prefectures": [
+        {
+          "code": "niigata",
+          "name": "新潟",
+          "items": [
+            {
+              "id": "niigata-52",
+              "motif": "笹団子",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/niigata/"
+            },
+            {
+              "id": "niigata-53",
+              "motif": "トキ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/niigata/"
+            }
+          ]
+        },
+        {
+          "code": "toyama",
+          "name": "富山",
+          "items": [
+            {
+              "id": "toyama-54",
+              "motif": "ホタルイカ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/toyama/"
+            }
+          ]
+        },
+        {
+          "code": "ishikawa",
+          "name": "石川",
+          "items": [
+            {
+              "id": "ishikawa-55",
+              "motif": "兼六園",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/ishikawa/"
+            }
+          ]
+        },
+        {
+          "code": "fukui",
+          "name": "福井",
+          "items": [
+            {
+              "id": "fukui-56",
+              "motif": "恐竜",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukui/"
+            }
+          ]
+        },
+        {
+          "code": "yamanashi",
+          "name": "山梨",
+          "items": [
+            {
+              "id": "yamanashi-57",
+              "motif": "ぶどう",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/yamanashi/"
+            },
+            {
+              "id": "yamanashi-58",
+              "motif": "富士山",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/yamanashi/"
+            }
+          ]
+        },
+        {
+          "code": "nagano",
+          "name": "長野",
+          "items": [
+            {
+              "id": "nagano-59",
+              "motif": "信州りんご",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/nagano/"
+            },
+            {
+              "id": "nagano-60",
+              "motif": "信州オコジョ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/nagano/"
+            }
+          ]
+        },
+        {
+          "code": "gifu",
+          "name": "岐阜",
+          "items": [
+            {
+              "id": "gifu-61",
+              "motif": "合掌造り",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/gifu/"
+            },
+            {
+              "id": "gifu-62",
+              "motif": "さるぼぼ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/gifu/"
+            }
+          ]
+        },
+        {
+          "code": "shizuoka",
+          "name": "静岡",
+          "items": [
+            {
+              "id": "shizuoka-63",
+              "motif": "お茶",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shizuoka/"
+            },
+            {
+              "id": "shizuoka-64",
+              "motif": "静岡みかん",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shizuoka/"
+            },
+            {
+              "id": "shizuoka-65",
+              "motif": "うなぎ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shizuoka/"
+            },
+            {
+              "id": "shizuoka-66",
+              "motif": "静岡いちご",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shizuoka/"
+            },
+            {
+              "id": "shizuoka-67",
+              "motif": "次郎長",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shizuoka/"
+            },
+            {
+              "id": "shizuoka-68",
+              "motif": "桜えび",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shizuoka/"
+            },
+            {
+              "id": "shizuoka-69",
+              "motif": "富士山",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shizuoka/"
+            }
+          ]
+        },
+        {
+          "code": "aichi",
+          "name": "愛知",
+          "items": [
+            {
+              "id": "aichi-70",
+              "motif": "しゃちほこ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/aichi/"
+            },
+            {
+              "id": "aichi-71",
+              "motif": "小倉トースト",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/aichi/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "kinki",
+      "name": "近畿",
+      "prefectures": [
+        {
+          "code": "mie",
+          "name": "三重",
+          "items": [
+            {
+              "id": "mie-72",
+              "motif": "真珠",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/mie/"
+            },
+            {
+              "id": "mie-73",
+              "motif": "伊勢エビ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/mie/"
+            }
+          ]
+        },
+        {
+          "code": "shiga",
+          "name": "滋賀",
+          "items": [
+            {
+              "id": "shiga-74",
+              "motif": "琵琶湖",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shiga/"
+            },
+            {
+              "id": "shiga-75",
+              "motif": "彦根城",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shiga/"
+            },
+            {
+              "id": "shiga-76",
+              "motif": "忍者",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shiga/"
+            },
+            {
+              "id": "shiga-77",
+              "motif": "信楽たぬき",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shiga/"
+            }
+          ]
+        },
+        {
+          "code": "kyoto",
+          "name": "京都",
+          "items": [
+            {
+              "id": "kyoto-78",
+              "motif": "八ツ橋",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kyoto/"
+            },
+            {
+              "id": "kyoto-79",
+              "motif": "新選組",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kyoto/"
+            },
+            {
+              "id": "kyoto-80",
+              "motif": "伏見稲荷",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kyoto/"
+            },
+            {
+              "id": "kyoto-81",
+              "motif": "抹茶ソフト",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kyoto/"
+            },
+            {
+              "id": "kyoto-82",
+              "motif": "金閣寺",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kyoto/"
+            },
+            {
+              "id": "kyoto-83",
+              "motif": "ニデック京都タワー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kyoto/"
+            }
+          ]
+        },
+        {
+          "code": "osaka",
+          "name": "大阪",
+          "items": [
+            {
+              "id": "osaka-84",
+              "motif": "たこ焼き",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/osaka/"
+            },
+            {
+              "id": "osaka-85",
+              "motif": "通天閣",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/osaka/"
+            },
+            {
+              "id": "osaka-86",
+              "motif": "大阪のおばちゃん",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/osaka/"
+            },
+            {
+              "id": "osaka-87",
+              "motif": "大阪城",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/osaka/"
+            },
+            {
+              "id": "osaka-88",
+              "motif": "ミックスジュース",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/osaka/"
+            },
+            {
+              "id": "osaka-89",
+              "motif": "お笑い",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/osaka/"
+            }
+          ]
+        },
+        {
+          "code": "hyogo",
+          "name": "兵庫",
+          "items": [
+            {
+              "id": "hyogo-90",
+              "motif": "神戸セーラー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hyogo/"
+            },
+            {
+              "id": "hyogo-91",
+              "motif": "神戸中華街",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hyogo/"
+            },
+            {
+              "id": "hyogo-92",
+              "motif": "淡路玉ねぎ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hyogo/"
+            },
+            {
+              "id": "hyogo-93",
+              "motif": "神戸ポートタワー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hyogo/"
+            },
+            {
+              "id": "hyogo-94",
+              "motif": "姫路千姫",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hyogo/"
+            },
+            {
+              "id": "hyogo-95",
+              "motif": "コウノトリ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hyogo/"
+            },
+            {
+              "id": "hyogo-96",
+              "motif": "渦潮",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hyogo/"
+            },
+            {
+              "id": "hyogo-97",
+              "motif": "瀬戸内レモン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hyogo/"
+            }
+          ]
+        },
+        {
+          "code": "nara",
+          "name": "奈良",
+          "items": [
+            {
+              "id": "nara-98",
+              "motif": "鹿",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/nara/"
+            },
+            {
+              "id": "nara-99",
+              "motif": "大仏",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/nara/"
+            }
+          ]
+        },
+        {
+          "code": "wakayama",
+          "name": "和歌山",
+          "items": [
+            {
+              "id": "wakayama-100",
+              "motif": "和歌山パンダ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/wakayama/"
+            },
+            {
+              "id": "wakayama-101",
+              "motif": "和歌山みかん",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/wakayama/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "chugoku-shikoku",
+      "name": "中国・四国",
+      "prefectures": [
+        {
+          "code": "tottori",
+          "name": "鳥取",
+          "items": [
+            {
+              "id": "tottori-102",
+              "motif": "いなばの白うさぎ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tottori/"
+            }
+          ]
+        },
+        {
+          "code": "shimane",
+          "name": "島根",
+          "items": [
+            {
+              "id": "shimane-103",
+              "motif": "縁結び",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shimane/"
+            },
+            {
+              "id": "shimane-104",
+              "motif": "いなばの白うさぎ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/shimane/"
+            }
+          ]
+        },
+        {
+          "code": "okayama",
+          "name": "岡山",
+          "items": [
+            {
+              "id": "okayama-105",
+              "motif": "桃太郎",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/okayama/"
+            },
+            {
+              "id": "okayama-106",
+              "motif": "桃から生まれた桃太郎",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/okayama/"
+            },
+            {
+              "id": "okayama-107",
+              "motif": "瀬戸内レモン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/okayama/"
+            }
+          ]
+        },
+        {
+          "code": "hiroshima",
+          "name": "広島",
+          "items": [
+            {
+              "id": "hiroshima-108",
+              "motif": "もみじ饅頭",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hiroshima/"
+            },
+            {
+              "id": "hiroshima-109",
+              "motif": "尾道ラーメン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hiroshima/"
+            },
+            {
+              "id": "hiroshima-110",
+              "motif": "宮島の鹿",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hiroshima/"
+            },
+            {
+              "id": "hiroshima-111",
+              "motif": "お好み焼き",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hiroshima/"
+            },
+            {
+              "id": "hiroshima-112",
+              "motif": "しゃもじ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hiroshima/"
+            },
+            {
+              "id": "hiroshima-113",
+              "motif": "瀬戸内レモン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hiroshima/"
+            },
+            {
+              "id": "hiroshima-114",
+              "motif": "牡蠣",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hiroshima/"
+            }
+          ]
+        },
+        {
+          "code": "yamaguchi",
+          "name": "山口",
+          "items": [
+            {
+              "id": "yamaguchi-115",
+              "motif": "ふく",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/yamaguchi/"
+            },
+            {
+              "id": "yamaguchi-116",
+              "motif": "瀬戸内レモン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/yamaguchi/"
+            }
+          ]
+        },
+        {
+          "code": "tokushima",
+          "name": "徳島",
+          "items": [
+            {
+              "id": "tokushima-117",
+              "motif": "渦潮",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tokushima/"
+            },
+            {
+              "id": "tokushima-118",
+              "motif": "瀬戸内レモン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/tokushima/"
+            }
+          ]
+        },
+        {
+          "code": "kagawa",
+          "name": "香川",
+          "items": [
+            {
+              "id": "kagawa-119",
+              "motif": "さぬきうどん",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kagawa/"
+            },
+            {
+              "id": "kagawa-120",
+              "motif": "瀬戸内レモン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kagawa/"
+            }
+          ]
+        },
+        {
+          "code": "ehime",
+          "name": "愛媛",
+          "items": [
+            {
+              "id": "ehime-121",
+              "motif": "愛媛みかん",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/ehime/"
+            },
+            {
+              "id": "ehime-122",
+              "motif": "瀬戸内レモン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/ehime/"
+            }
+          ]
+        },
+        {
+          "code": "kochi",
+          "name": "高知",
+          "items": [
+            {
+              "id": "kochi-123",
+              "motif": "坂本龍馬",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kochi/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "kyushu-okinawa",
+      "name": "九州・沖縄",
+      "prefectures": [
+        {
+          "code": "fukuoka",
+          "name": "福岡",
+          "items": [
+            {
+              "id": "fukuoka-124",
+              "motif": "あまおう",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukuoka/"
+            },
+            {
+              "id": "fukuoka-125",
+              "motif": "明太子",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukuoka/"
+            },
+            {
+              "id": "fukuoka-126",
+              "motif": "とんこつラーメン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukuoka/"
+            },
+            {
+              "id": "fukuoka-127",
+              "motif": "バナナの叩き売り",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukuoka/"
+            },
+            {
+              "id": "fukuoka-128",
+              "motif": "にわか",
+              "owned": true,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/fukuoka/"
+            }
+          ]
+        },
+        {
+          "code": "saga",
+          "name": "佐賀",
+          "items": [
+            {
+              "id": "saga-129",
+              "motif": "バルーン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/saga/"
+            }
+          ]
+        },
+        {
+          "code": "nagasaki",
+          "name": "長崎",
+          "items": [
+            {
+              "id": "nagasaki-130",
+              "motif": "カステラ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/nagasaki/"
+            }
+          ]
+        },
+        {
+          "code": "kumamoto",
+          "name": "熊本",
+          "items": [
+            {
+              "id": "kumamoto-131",
+              "motif": "熊本城",
+              "owned": true,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kumamoto/"
+            },
+            {
+              "id": "kumamoto-132",
+              "motif": "辛子れんこん",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kumamoto/"
+            },
+            {
+              "id": "kumamoto-133",
+              "motif": "すいか",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kumamoto/"
+            }
+          ]
+        },
+        {
+          "code": "oita",
+          "name": "大分",
+          "items": [
+            {
+              "id": "oita-134",
+              "motif": "大分温泉",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/oita/"
+            }
+          ]
+        },
+        {
+          "code": "miyazaki",
+          "name": "宮崎",
+          "items": [
+            {
+              "id": "miyazaki-135",
+              "motif": "マンゴー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/miyazaki/"
+            },
+            {
+              "id": "miyazaki-136",
+              "motif": "サーフィン",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/miyazaki/"
+            }
+          ]
+        },
+        {
+          "code": "kagoshima",
+          "name": "鹿児島",
+          "items": [
+            {
+              "id": "kagoshima-137",
+              "motif": "桜島",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kagoshima/"
+            },
+            {
+              "id": "kagoshima-138",
+              "motif": "氷しろくま",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kagoshima/"
+            },
+            {
+              "id": "kagoshima-139",
+              "motif": "黒豚",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kagoshima/"
+            },
+            {
+              "id": "kagoshima-140",
+              "motif": "芋焼酎",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kagoshima/"
+            },
+            {
+              "id": "kagoshima-141",
+              "motif": "アマミノクロウサギ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/kagoshima/"
+            }
+          ]
+        },
+        {
+          "code": "okinawa",
+          "name": "沖縄",
+          "items": [
+            {
+              "id": "okinawa-142",
+              "motif": "シーサー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/okinawa/"
+            },
+            {
+              "id": "okinawa-143",
+              "motif": "ジンベエザメ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/okinawa/"
+            },
+            {
+              "id": "okinawa-144",
+              "motif": "紅イモタルト",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/okinawa/"
+            },
+            {
+              "id": "okinawa-145",
+              "motif": "首里城",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/okinawa/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "overseas",
+      "name": "海外",
+      "prefectures": [
+        {
+          "code": "macau",
+          "name": "マカオ",
+          "items": [
+            {
+              "id": "macau-146",
+              "motif": "セントポール",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/macau/"
+            },
+            {
+              "id": "macau-147",
+              "motif": "エッグタルト",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/macau/"
+            },
+            {
+              "id": "macau-148",
+              "motif": "アズレージョ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/macau/"
+            }
+          ]
+        },
+        {
+          "code": "hongkong",
+          "name": "香港",
+          "items": [
+            {
+              "id": "hongkong-149",
+              "motif": "エッグワッフル",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hongkong/"
+            },
+            {
+              "id": "hongkong-150",
+              "motif": "ビクトリアハーバー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hongkong/"
+            },
+            {
+              "id": "hongkong-151",
+              "motif": "カンフー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/hongkong/"
+            }
+          ]
+        },
+        {
+          "code": "australia",
+          "name": "オーストラリア",
+          "items": [
+            {
+              "id": "australia-152",
+              "motif": "コアラ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/australia/"
+            },
+            {
+              "id": "australia-153",
+              "motif": "カンガルー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/australia/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "other",
+      "name": "その他",
+      "prefectures": [
+        {
+          "code": "others",
+          "name": "その他",
+          "items": [
+            {
+              "id": "others-154",
+              "motif": "温泉",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/others/"
+            },
+            {
+              "id": "others-155",
+              "motif": "スキー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/others/"
+            },
+            {
+              "id": "others-156",
+              "motif": "スノボー",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/others/"
+            },
+            {
+              "id": "others-157",
+              "motif": "はやぶさ",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/others/"
+            },
+            {
+              "id": "others-158",
+              "motif": "E7",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/others/"
+            },
+            {
+              "id": "others-159",
+              "motif": "N700S",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/others/"
+            },
+            {
+              "id": "others-160",
+              "motif": "Dr.Yellow",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/others/"
+            },
+            {
+              "id": "others-161",
+              "motif": "パイロット",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/others/"
+            },
+            {
+              "id": "others-162",
+              "motif": "お買い物",
+              "owned": false,
+              "memo": "",
+              "photo": null,
+              "refLink": "https://kusamushirikenntei.com/others/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>うさぎご当地キーホルダー管理</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f6a0b5">
+<style>
+  :root{
+    --bg:#fdf6f2;
+    --surface:#ffffff;
+    --surface-2:#fbeef1;
+    --text:#3a2e2e;
+    --text-dim:#8a7a7a;
+    --accent:#ef7fa0;
+    --accent-dark:#d9577d;
+    --accent-soft:#ffe0e8;
+    --border:#f0dde1;
+    --owned:#8bc5a0;
+    --owned-soft:#e1f3e6;
+    --shadow:0 2px 10px rgba(80,40,50,0.08);
+    --radius:16px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1b1518;
+      --surface:#262025;
+      --surface-2:#2e262b;
+      --text:#f3e9ec;
+      --text-dim:#b2a0a5;
+      --accent:#f293ad;
+      --accent-dark:#f293ad;
+      --accent-soft:#3d2a32;
+      --border:#3a2e33;
+      --owned:#7fbd98;
+      --owned-soft:#1f3328;
+      --shadow:0 2px 10px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1b1518;
+    --surface:#262025;
+    --surface-2:#2e262b;
+    --text:#f3e9ec;
+    --text-dim:#b2a0a5;
+    --accent:#f293ad;
+    --accent-dark:#f293ad;
+    --accent-soft:#3d2a32;
+    --border:#3a2e33;
+    --owned:#7fbd98;
+    --owned-soft:#1f3328;
+    --shadow:0 2px 10px rgba(0,0,0,0.35);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Hiragino Maru Gothic ProN","BIZ UDGothic","Yu Gothic",sans-serif;
+    padding-bottom:60px;
+  }
+  header{
+    position:sticky; top:0; z-index:20;
+    background:var(--surface);
+    border-bottom:1px solid var(--border);
+    padding:14px 16px 10px;
+  }
+  .title-row{display:flex; align-items:center; justify-content:space-between; gap:8px;}
+  h1{font-size:1.15rem; margin:0; display:flex; align-items:center; gap:6px;}
+  .icon-btn{
+    border:none; background:var(--surface-2); color:var(--text);
+    width:38px; height:38px; border-radius:50%; font-size:1.1rem;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .progress-wrap{display:flex; align-items:center; gap:14px; margin-top:12px;}
+  .ring{width:64px; height:64px; flex:0 0 auto;}
+  .ring circle{fill:none; stroke-width:8;}
+  .ring .bg{stroke:var(--border);}
+  .ring .fg{stroke:var(--accent); stroke-linecap:round; transition:stroke-dasharray .4s ease;}
+  .ring-label{font-size:0.95rem; font-weight:700; fill:var(--text);}
+  .progress-text{font-size:0.85rem; color:var(--text-dim); line-height:1.4;}
+  .progress-text b{color:var(--accent-dark); font-size:1rem;}
+
+  .controls{padding:10px 16px; display:flex; flex-direction:column; gap:8px;}
+  .search-box{
+    display:flex; align-items:center; gap:6px;
+    background:var(--surface-2); border-radius:999px; padding:8px 14px;
+  }
+  .search-box input{
+    border:none; background:transparent; outline:none; flex:1;
+    color:var(--text); font-size:0.95rem;
+  }
+  .filter-row{display:flex; gap:6px; overflow-x:auto;}
+  .chip{
+    border:1px solid var(--border); background:var(--surface);
+    color:var(--text-dim); padding:6px 14px; border-radius:999px;
+    font-size:0.85rem; white-space:nowrap; cursor:pointer;
+  }
+  .chip.active{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:700;}
+
+  main{padding:8px 12px 0;}
+  .region{margin-bottom:10px;}
+  .region-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 8px; cursor:pointer; user-select:none;
+  }
+  .region-head h2{font-size:1rem; margin:0; display:flex; align-items:center; gap:8px;}
+  .region-count{font-size:0.8rem; color:var(--text-dim); font-weight:400;}
+  .chevron{transition:transform .2s ease; color:var(--text-dim);}
+  .region.collapsed .chevron{transform:rotate(-90deg);}
+  .region.collapsed .pref-grid{display:none;}
+
+  .pref-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
+    gap:10px; padding:4px 4px 14px;
+  }
+  .pref-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:12px; box-shadow:var(--shadow); cursor:pointer;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .pref-card .pname{font-weight:700; font-size:0.95rem;}
+  .pref-card .pstat{font-size:0.78rem; color:var(--text-dim);}
+  .mini-bar{height:6px; border-radius:4px; background:var(--border); overflow:hidden;}
+  .mini-bar i{display:block; height:100%; background:var(--owned);}
+  .pref-card.complete{border-color:var(--owned);}
+  .pref-card.complete .pname::after{content:" \2713"; color:var(--owned);}
+
+  /* modal */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(20,10,15,0.45);
+    display:flex; align-items:flex-end; justify-content:center; z-index:50;
+  }
+  .modal-overlay[hidden]{display:none;}
+  .modal{
+    background:var(--surface); width:100%; max-width:560px;
+    border-radius:20px 20px 0 0; max-height:88vh; overflow-y:auto;
+    padding:16px 16px 24px; animation:slideup .2s ease;
+  }
+  @keyframes slideup{from{transform:translateY(16px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+  .modal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  .modal-head h3{margin:0; font-size:1.1rem;}
+  .modal-head a{font-size:0.85rem; color:var(--accent-dark); text-decoration:none;}
+  .item-row{
+    border:1px solid var(--border); border-radius:14px; padding:10px 12px; margin-bottom:8px;
+    background:var(--surface-2);
+  }
+  .item-row.owned{background:var(--owned-soft); border-color:var(--owned);}
+  .item-top{display:flex; align-items:center; gap:10px;}
+  .item-top label{flex:1; font-weight:600; font-size:0.95rem; display:flex; align-items:center; gap:8px;}
+  .item-top input[type=checkbox]{width:20px; height:20px; accent-color:var(--owned);}
+  .item-detail{margin-top:8px; display:none; flex-direction:column; gap:8px;}
+  .item-row.open .item-detail{display:flex;}
+  .item-detail textarea{
+    width:100%; min-height:44px; border:1px solid var(--border); border-radius:10px;
+    padding:8px; font-size:0.85rem; background:var(--surface); color:var(--text); resize:vertical;
+    font-family:inherit;
+  }
+  .photo-row{display:flex; align-items:center; gap:10px;}
+  .thumb{
+    width:56px; height:56px; border-radius:10px; object-fit:cover; border:1px solid var(--border);
+    background:var(--bg); cursor:pointer;
+  }
+  .thumb.empty{display:flex; align-items:center; justify-content:center; font-size:1.3rem; color:var(--text-dim);}
+  .small-btn{
+    border:1px solid var(--border); background:var(--surface); color:var(--text);
+    padding:6px 10px; border-radius:10px; font-size:0.8rem; cursor:pointer;
+  }
+  .toggle-link{font-size:0.78rem; color:var(--text-dim); cursor:pointer; text-decoration:underline;}
+  .del-btn{color:#c75656; border-color:#e3b6b6; background:transparent;}
+
+  .add-row{display:flex; gap:8px; margin-top:10px;}
+  .add-row input{
+    flex:1; border:1px solid var(--border); border-radius:10px; padding:10px;
+    font-size:0.9rem; background:var(--surface-2); color:var(--text);
+  }
+  .primary-btn{
+    background:var(--accent); color:#fff; border:none; border-radius:10px;
+    padding:10px 16px; font-size:0.9rem; font-weight:700; cursor:pointer;
+  }
+  .close-btn{
+    display:block; width:100%; margin-top:14px; padding:12px; border:none;
+    border-radius:12px; background:var(--surface-2); color:var(--text); font-size:0.95rem; cursor:pointer;
+  }
+  .lightbox{
+    position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:60;
+    display:flex; align-items:center; justify-content:center; padding:20px;
+  }
+  .lightbox[hidden]{display:none;}
+  .lightbox img{max-width:100%; max-height:100%; border-radius:12px;}
+  .empty-state{text-align:center; color:var(--text-dim); padding:40px 20px; font-size:0.9rem;}
+  footer{text-align:center; color:var(--text-dim); font-size:0.75rem; padding:20px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title-row">
+    <h1>🐰 うさぎご当地キーホルダー</h1>
+    <button class="icon-btn" id="themeBtn" title="テーマ切り替え">🌓</button>
+  </div>
+  <div class="progress-wrap">
+    <svg class="ring" viewBox="0 0 64 64">
+      <circle class="bg" cx="32" cy="32" r="26"></circle>
+      <circle class="fg" id="ringFg" cx="32" cy="32" r="26" transform="rotate(-90 32 32)"></circle>
+      <text class="ring-label" id="ringLabel" x="32" y="37" text-anchor="middle">0%</text>
+    </svg>
+    <div class="progress-text">
+      <div><b id="ownedCount">0</b> / <span id="totalCount">0</span> 個 所持</div>
+      <div>集めて達成率アップを目指そう！</div>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="search-box">
+    <span>🔍</span>
+    <input type="text" id="searchInput" placeholder="都道府県・モチーフで検索">
+  </div>
+  <div class="filter-row">
+    <div class="chip active" data-filter="all">すべて</div>
+    <div class="chip" data-filter="owned">持ってる</div>
+    <div class="chip" data-filter="not">未所持</div>
+  </div>
+</div>
+
+<main id="regionsContainer"></main>
+
+<footer>データ出典: <a href="https://kusamushirikenntei.com/" target="_blank" rel="noopener">kusamushirikenntei.com</a>(写真はご自身で撮影したもののみ掲載)</footer>
+
+<div class="modal-overlay" id="modalOverlay" hidden>
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="拡大写真">
+</div>
+
+<input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none">
+
+<script>
+const STORAGE_KEY = 'chiikawa-usagi-state-v1';
+const THEME_KEY = 'chiikawa-usagi-theme';
+let DATA = null;
+let currentPrefCode = null;
+let currentPhotoTargetId = null;
+let filterMode = 'all';
+let searchTerm = '';
+
+function loadState(){
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e){ return {}; }
+}
+function saveState(state){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+async function init(){
+  const theme = localStorage.getItem(THEME_KEY);
+  if (theme) document.documentElement.setAttribute('data-theme', theme);
+
+  const res = await fetch('data/usagi-items.json');
+  const json = await res.json();
+  const state = loadState();
+
+  // merge saved owned/memo/photo + custom items into base data
+  json.regions.forEach(region => {
+    region.prefectures.forEach(pref => {
+      pref.items.forEach(item => {
+        const saved = state[item.id];
+        if (saved) Object.assign(item, saved);
+      });
+      const customKey = 'custom:' + pref.code;
+      const customItems = state[customKey] || [];
+      customItems.forEach(ci => pref.items.push(ci));
+    });
+  });
+
+  DATA = json;
+  renderRegions();
+  updateProgress();
+
+  document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+  document.getElementById('searchInput').addEventListener('input', e => {
+    searchTerm = e.target.value.trim();
+    renderRegions();
+  });
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      filterMode = chip.dataset.filter;
+      renderRegions();
+    });
+  });
+  document.getElementById('modalOverlay').addEventListener('click', e => {
+    if (e.target.id === 'modalOverlay') closeModal();
+  });
+  document.getElementById('lightbox').addEventListener('click', closeLightbox);
+  document.getElementById('photoInput').addEventListener('change', handlePhotoSelected);
+}
+
+function toggleTheme(){
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem(THEME_KEY, next);
+}
+
+function allItems(){
+  const items = [];
+  DATA.regions.forEach(r => r.prefectures.forEach(p => p.items.forEach(i => items.push(i))));
+  return items;
+}
+
+function updateProgress(){
+  const items = allItems();
+  const total = items.length;
+  const owned = items.filter(i => i.owned).length;
+  const pct = total ? Math.round(owned/total*100) : 0;
+  document.getElementById('ownedCount').textContent = owned;
+  document.getElementById('totalCount').textContent = total;
+  const circ = 2 * Math.PI * 26;
+  const fg = document.getElementById('ringFg');
+  fg.style.strokeDasharray = `${circ*pct/100} ${circ}`;
+  document.getElementById('ringLabel').textContent = pct + '%';
+}
+
+function matchesFilter(item){
+  if (filterMode === 'owned' && !item.owned) return false;
+  if (filterMode === 'not' && item.owned) return false;
+  return true;
+}
+function matchesSearch(pref, item){
+  if (!searchTerm) return true;
+  const t = searchTerm.toLowerCase();
+  return pref.name.toLowerCase().includes(t) || item.motif.toLowerCase().includes(t);
+}
+
+function renderRegions(){
+  const container = document.getElementById('regionsContainer');
+  container.innerHTML = '';
+
+  DATA.regions.forEach(region => {
+    const visiblePrefs = region.prefectures.filter(pref =>
+      pref.items.some(item => matchesFilter(item) && matchesSearch(pref, item))
+    );
+    if (!visiblePrefs.length) return;
+
+    const regionEl = document.createElement('div');
+    regionEl.className = 'region';
+
+    const head = document.createElement('div');
+    head.className = 'region-head';
+    const totalInRegion = region.prefectures.reduce((s,p)=>s+p.items.length,0);
+    const ownedInRegion = region.prefectures.reduce((s,p)=>s+p.items.filter(i=>i.owned).length,0);
+    head.innerHTML = `<h2>${region.name} <span class="region-count">${ownedInRegion}/${totalInRegion}</span></h2><span class="chevron">▾</span>`;
+    head.addEventListener('click', () => regionEl.classList.toggle('collapsed'));
+    regionEl.appendChild(head);
+
+    const grid = document.createElement('div');
+    grid.className = 'pref-grid';
+    visiblePrefs.forEach(pref => {
+      const owned = pref.items.filter(i=>i.owned).length;
+      const total = pref.items.length;
+      const complete = total > 0 && owned === total;
+      const card = document.createElement('div');
+      card.className = 'pref-card' + (complete ? ' complete' : '');
+      card.innerHTML = `
+        <div class="pname">${pref.name}</div>
+        <div class="pstat">${owned}/${total} 個</div>
+        <div class="mini-bar"><i style="width:${total?owned/total*100:0}%"></i></div>
+      `;
+      card.addEventListener('click', () => openPrefModal(pref.code));
+      grid.appendChild(card);
+    });
+    regionEl.appendChild(grid);
+    container.appendChild(regionEl);
+  });
+
+  if (!container.children.length){
+    container.innerHTML = '<div class="empty-state">条件に合うキーホルダーが見つかりません</div>';
+  }
+}
+
+function findPref(code){
+  for (const region of DATA.regions){
+    const p = region.prefectures.find(p => p.code === code);
+    if (p) return p;
+  }
+  return null;
+}
+
+function openPrefModal(code){
+  currentPrefCode = code;
+  renderModal();
+  document.getElementById('modalOverlay').hidden = false;
+}
+function closeModal(){
+  document.getElementById('modalOverlay').hidden = true;
+  currentPrefCode = null;
+  renderRegions();
+  updateProgress();
+}
+
+function renderModal(){
+  const pref = findPref(currentPrefCode);
+  const modal = document.getElementById('modalContent');
+  const owned = pref.items.filter(i=>i.owned).length;
+
+  let itemsHtml = pref.items.map(item => `
+    <div class="item-row ${item.owned?'owned':''}" data-id="${item.id}">
+      <div class="item-top">
+        <label>
+          <input type="checkbox" ${item.owned?'checked':''} onchange="toggleOwned('${item.id}')">
+          ${escapeHtml(item.motif)}${item.custom?' <span style="font-size:0.7em;color:var(--text-dim)">(追加)</span>':''}
+        </label>
+        <span class="toggle-link" onclick="toggleDetail('${item.id}')">メモ・写真</span>
+      </div>
+      <div class="item-detail">
+        <textarea placeholder="購入日・お店などメモ" onchange="updateMemo('${item.id}', this.value)">${escapeHtml(item.memo||'')}</textarea>
+        <div class="photo-row">
+          ${item.photo
+            ? `<img class="thumb" src="${item.photo}" onclick="openLightbox('${item.id}')">`
+            : `<div class="thumb empty">📷</div>`}
+          <button class="small-btn" onclick="pickPhoto('${item.id}')">${item.photo?'撮り直し':'写真を追加'}</button>
+          ${item.photo ? `<button class="small-btn del-btn" onclick="removePhoto('${item.id}')">削除</button>` : ''}
+          ${item.custom ? `<button class="small-btn del-btn" onclick="removeCustomItem('${item.id}')">この項目を削除</button>` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  modal.innerHTML = `
+    <div class="modal-head">
+      <h3>${pref.name} <span style="font-size:0.8rem;color:var(--text-dim)">${owned}/${pref.items.length}</span></h3>
+      <a href="${pref.items[0] ? pref.items[0].refLink : '#'}" target="_blank" rel="noopener">🔗 写真を見る</a>
+    </div>
+    ${itemsHtml}
+    <div class="add-row">
+      <input type="text" id="newItemInput" placeholder="リストにないものを追加">
+      <button class="primary-btn" onclick="addCustomItem()">追加</button>
+    </div>
+    <button class="close-btn" onclick="closeModal()">閉じる</button>
+  `;
+}
+
+function escapeHtml(s){
+  return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function persistItem(item){
+  const state = loadState();
+  state[item.id] = { owned: item.owned, memo: item.memo, photo: item.photo };
+  if (item.custom) state[item.id].custom = true;
+  saveState(state);
+}
+
+function toggleOwned(id){
+  const pref = findPref(currentPrefCode);
+  const item = pref.items.find(i => i.id === id);
+  item.owned = !item.owned;
+  persistItem(item);
+  renderModal();
+  updateProgress();
+}
+
+function toggleDetail(id){
+  const row = document.querySelector(`.item-row[data-id="${id}"]`);
+  row.classList.toggle('open');
+}
+
+function updateMemo(id, value){
+  const pref = findPref(currentPrefCode);
+  const item = pref.items.find(i => i.id === id);
+  item.memo = value;
+  persistItem(item);
+}
+
+function pickPhoto(id){
+  currentPhotoTargetId = id;
+  document.getElementById('photoInput').click();
+}
+
+function handlePhotoSelected(e){
+  const file = e.target.files[0];
+  if (!file) return;
+  const img = new Image();
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    img.onload = function(){
+      const canvas = document.createElement('canvas');
+      const maxSize = 800;
+      let w = img.width, h = img.height;
+      if (w > h && w > maxSize){ h = h*maxSize/w; w = maxSize; }
+      else if (h > maxSize){ w = w*maxSize/h; h = maxSize; }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.75);
+      const pref = findPref(currentPrefCode);
+      const item = pref.items.find(i => i.id === currentPhotoTargetId);
+      item.photo = dataUrl;
+      persistItem(item);
+      renderModal();
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+  e.target.value = '';
+}
+
+function removePhoto(id){
+  const pref = findPref(currentPrefCode);
+  const item = pref.items.find(i => i.id === id);
+  item.photo = null;
+  persistItem(item);
+  renderModal();
+}
+
+function openLightbox(id){
+  const pref = findPref(currentPrefCode);
+  const item = pref.items.find(i => i.id === id);
+  document.getElementById('lightboxImg').src = item.photo;
+  document.getElementById('lightbox').hidden = false;
+}
+function closeLightbox(){
+  document.getElementById('lightbox').hidden = true;
+}
+
+function addCustomItem(){
+  const input = document.getElementById('newItemInput');
+  const name = input.value.trim();
+  if (!name) return;
+  const pref = findPref(currentPrefCode);
+  const id = 'custom-' + pref.code + '-' + Date.now();
+  const newItem = { id, motif: name, owned: false, memo: '', photo: null, refLink: pref.items[0]?pref.items[0].refLink:'#', custom: true };
+  pref.items.push(newItem);
+
+  const state = loadState();
+  const key = 'custom:' + pref.code;
+  state[key] = state[key] || [];
+  state[key].push(newItem);
+  saveState(state);
+
+  input.value = '';
+  renderModal();
+  updateProgress();
+}
+
+function removeCustomItem(id){
+  const pref = findPref(currentPrefCode);
+  pref.items = pref.items.filter(i => i.id !== id);
+
+  const state = loadState();
+  delete state[id];
+  const key = 'custom:' + pref.code;
+  if (state[key]) state[key] = state[key].filter(i => i.id !== id);
+  saveState(state);
+
+  renderModal();
+  updateProgress();
+}
+
+init();
+</script>
+</body>
+</html>
