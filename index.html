@@ -118,9 +118,15 @@
     gap:10px; padding:4px 4px 14px;
   }
   .pref-card{
+    position:relative;
     background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
     padding:12px; box-shadow:var(--shadow); cursor:pointer;
     display:flex; flex-direction:column; gap:6px;
+  }
+  .card-thumb{
+    position:absolute; top:8px; right:8px;
+    width:36px; height:36px; border-radius:50%; object-fit:cover;
+    border:2px solid var(--surface); box-shadow:var(--shadow);
   }
   .pref-card .pname{font-weight:700; font-size:0.95rem;}
   .pref-card .pstat{font-size:0.78rem; color:var(--text-dim);}
@@ -398,9 +404,11 @@ function renderRegions(){
       const owned = pref.items.filter(i=>i.owned).length;
       const total = pref.items.length;
       const complete = total > 0 && owned === total;
+      const photoItem = pref.items.find(i => i.photo);
       const card = document.createElement('div');
       card.className = 'pref-card' + (complete ? ' complete' : '');
       card.innerHTML = `
+        ${photoItem ? `<img class="card-thumb" src="${photoItem.photo}" alt="${escapeHtml(photoItem.motif)}">` : ''}
         <div class="pname">${pref.name}</div>
         <div class="pstat">${owned}/${total} 個</div>
         <div class="mini-bar"><i style="width:${total?owned/total*100:0}%"></i></div>
